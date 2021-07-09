@@ -7,7 +7,7 @@
 #if !defined(_WIN32)
 #ifndef UTILITY_DISKINTERFACELINUX_H_
 #define UTILITY_DISKINTERFACELINUX_H_
-#include "DiskInterface.h"
+#include "utility/DiskInterface.h"
 
 namespace utility {
     class DiskInterfaceLinux : public DiskInterface {

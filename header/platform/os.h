@@ -8,8 +8,9 @@
 #ifndef PLATFORM_OS_H_
 #define PLATFORM_OS_H_
 #include <iostream>
+#include "tf_export.h"
 
-class OS {
+class TF_EXT_CLASS OS {
 public:
 	static void SetCurrentThreadName(const std::string& name);
 };

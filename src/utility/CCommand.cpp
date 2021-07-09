@@ -5,9 +5,9 @@
  *      Author: qpzhou
  */
 
-#include "CCommand.h"
-#include "Macros.h"
-#include "StringUtils.hpp"
+#include "utility/CCommand.h"
+#include "utility/Macros.h"
+#include "utility/StringUtils.hpp"
 #if _WIN32
 #include <Windows.h>
 #endif
@@ -17,8 +17,8 @@
 #include <list>
 #include <algorithm>
 #include <limits>
-#include "Metrics.h"
-#include "Flags.h"
+#include "utility/Metrics.h"
+#include "utility/Flags.h"
 using namespace std;
 
 namespace utility {

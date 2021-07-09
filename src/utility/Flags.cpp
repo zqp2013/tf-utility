@@ -5,9 +5,9 @@
  *      Author: qpzhou
  */
 
-#include "Flags.h"
-#include "DiskInterface.h"
-#include "StringUtils.hpp"
+#include "utility/Flags.h"
+#include "utility/DiskInterface.h"
+#include "utility/StringUtils.hpp"
 #include <iostream>
 #include <sstream>
 #include <string.h>

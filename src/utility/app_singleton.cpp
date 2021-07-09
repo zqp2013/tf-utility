@@ -11,10 +11,11 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "utility/app_singleton.h"
 
 #define kPidFileName "app.pid"
 
-bool enter_app_singleton() {
+TF_EXT_CLASS bool enter_app_singleton() {
 	int fd = open(kPidFileName, O_RDWR | O_TRUNC);
 	if (fd == -1) {
 		//对应的锁文件当前不存在，试图创建该锁文件
@@ -61,4 +62,3 @@ bool enter_app_singleton() {
 	// 程序退出后kernel会自动close
 	return true;
 }
-

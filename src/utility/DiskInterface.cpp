@@ -4,10 +4,10 @@
  *  Created on: 2019年12月13日
  *      Author: qpzhou
  */
-#include "DiskInterface.h"
+#include "utility/DiskInterface.h"
 #include "DiskInterfaceLinux.h"
 #include "DiskInterfaceWin.h"
-#include "Macros.h"
+#include "utility/Macros.h"
 #include <string.h>
 
 namespace utility {

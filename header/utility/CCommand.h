@@ -1,11 +1,12 @@
 ﻿#pragma once
 #include <string>
 #include "Macros.h"
+#include "tf_export.h"
 
 namespace utility {
 class CCommand;
 
-class CCommandManager : public AllStatic {
+class TF_EXT_CLASS CCommandManager : public AllStatic {
 public:
 	static void RegisterCommand(CCommand* cmd);
 	static void UnregisterCommand(CCommand* cmd);
@@ -15,7 +16,7 @@ public:
 	static bool RunCommand(std::string command, std::ostream& out);
 };
 
-class CCommand {
+class TF_EXT_CLASS CCommand {
 public:
 	/**
 	 * boot参数：是否独立的程序入口。true 使用--run_command=xxx来启动。

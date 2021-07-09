@@ -12,10 +12,11 @@
 #include <list>
 #include <ostream>
 #include "Stopwatch.hpp"
+#include "tf_export.h"
 
 namespace utility {
 
-struct Metric {
+struct TF_EXT_CLASS Metric {
 	std::string name;
 	size_t count;
 	int64_t sum;
@@ -30,7 +31,7 @@ private:
 	int64_t start_;
 };
 
-struct Metrics {
+struct TF_EXT_CLASS Metrics {
 	static Metrics* GetInstance();
 	~Metrics();
 

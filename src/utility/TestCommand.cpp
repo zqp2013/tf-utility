@@ -4,12 +4,12 @@
  *  Created on: 2019年12月3日
  *      Author: qpzhou
  */
-#include "TestCommand.h"
-#include "CCommand.h"
+#include "utility/TestCommand.h"
+#include "utility/CCommand.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Metrics.h"
+#include "utility/Metrics.h"
 
  static std::list<TestFunc>& test_funcs() {
  	static std::list<TestFunc> funcs;

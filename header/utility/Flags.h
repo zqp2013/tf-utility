@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include "Macros.h"
+#include "tf_export.h"
 
 typedef const char* charp;
 
@@ -24,7 +25,7 @@ namespace utility {
 typedef void (*FlagHandler)(bool value);
 
 class Flag;
-class Flags : public AllStatic {
+class TF_EXT_CLASS Flags : public AllStatic {
 public:
 	enum FlagType {
 		kUnknow,

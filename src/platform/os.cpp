@@ -5,7 +5,7 @@
  *      Author: qpzhou
  */
 
-#include "os.h"
+#include "platform/os.h"
 #ifdef _WIN32
 #include <Windows.h>
 #endif
