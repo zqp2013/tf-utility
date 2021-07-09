@@ -1,10 +1,10 @@
 /**
  * Copyright (c) tsingfun.com
- * my test framework
+ * tsingfun test framework
  */
 
-#ifndef MY_TEST_H_
-#define MY_TEST_H_
+#ifndef TF_TEST_H_
+#define TF_TEST_H_
 
 #include <stdint.h>
 #include <getopt.h>

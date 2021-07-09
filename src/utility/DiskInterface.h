@@ -9,7 +9,7 @@
 #define UTILITY_DISKINTERFACE_H_
 #include <iostream>
 #include <vector>
-#include "export.h"
+#include "tf_export.h"
 
 #if defined(_MSC_VER)
 #include <Windows.h>
@@ -29,7 +29,7 @@
 #endif
 
 namespace utility {
-	class CXX_EXT_CLASS DiskInterface {
+	class TF_EXT_CLASS DiskInterface {
 	protected:
 		bool WriteFile(const std::string& path, const std::string& contents, bool truncate);
 		virtual void CheckIoError() = 0;
