@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include "utility/TestCommand.h"
 using namespace std;
 struct stRoutineArgs_t
 {
@@ -50,14 +51,15 @@ void* RoutineFunc2(void* args)
 	return NULL;
 }
 
-int main()
+//int main()
+void test_co_spec()
 {
 	stRoutineArgs_t args[10];
 
 	for (int i = 0; i < 10; i++)
 	{
 		args[i].routine_id = i;
-		co_create(&args[i].co, NULL, RoutineFunc, (void*)&args[i]);
+		co_create(&args[i].co, NULL, RoutineFunc2, (void*)&args[i]);
 
 		// resume之后，会将当前运行环境切换为该协程
 		co_resume(args[i].co);
@@ -65,5 +67,7 @@ int main()
 	// 10个协程全都resume、yield了一遍完之后，开始在主线程开启event_loop
 
 	co_eventloop(co_get_epoll_ct(), NULL, NULL);
-	return 0;
+//	return 0;
 }
+
+TEST_FUNC_ENTRY(co_spec)

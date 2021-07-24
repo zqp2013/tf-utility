@@ -25,11 +25,12 @@
 #include "coctx.h"
 #include "co_routine.h"
 #include "co_routine_inner.h"
+#include "utility/TestCommand.h"
 
 /*
 * 本实例是对共享栈功能的展示
 */
-void* RoutineFunc(void* args)
+void* RoutineFunc1(void* args)
 {
 	// 打开sys_hook
 	co_enable_hook_sys();
@@ -47,7 +48,8 @@ void* RoutineFunc(void* args)
 	return NULL;
 }
 
-int main()
+//int main()
+void test_co_copystack()
 {
 	//创建一个共享栈
 	stShareStack_t* share_stack= co_alloc_sharestack(1, 1024 * 128);
@@ -64,9 +66,10 @@ int main()
 		routineid[i] = i;
 
 		
-		co_create(&co[i], &attr, RoutineFunc, routineid + i);
+		co_create(&co[i], &attr, RoutineFunc1, routineid + i);
 		co_resume(co[i]);
 	}
 	co_eventloop(co_get_epoll_ct(), NULL, NULL);
-	return 0;
+//	return 0;
 }
+TEST_FUNC_ENTRY(co_copystack)

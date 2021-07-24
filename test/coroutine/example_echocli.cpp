@@ -34,6 +34,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <signal.h>
+#include "utility/TestCommand.h"
 
 using namespace std;
 struct stEndPoint

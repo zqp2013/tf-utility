@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <queue>
 #include "co_routine.h"
+#include "utility/TestCommand.h"
 using namespace std;
 
 /**
@@ -71,18 +72,21 @@ void* Consumer(void* args)
 	return NULL;
 }
 //int main()
-//{
-//	stEnv_t* env = new stEnv_t;
-//	env->cond = co_cond_alloc();
-//
-//	stCoRoutine_t* consumer_routine;
-//	co_create(&consumer_routine, NULL, Consumer, env);
-//	co_resume(consumer_routine);
-//
-//	stCoRoutine_t* producer_routine;
-//	co_create(&producer_routine, NULL, Producer, env);
-//	co_resume(producer_routine);
-//
-//	co_eventloop(co_get_epoll_ct(), NULL, NULL);
+void test_co_cond()
+{
+	stEnv_t* env = new stEnv_t;
+	env->cond = co_cond_alloc();
+
+	stCoRoutine_t* consumer_routine;
+	co_create(&consumer_routine, NULL, Consumer, env);
+	co_resume(consumer_routine);
+
+	stCoRoutine_t* producer_routine;
+	co_create(&producer_routine, NULL, Producer, env);
+	co_resume(producer_routine);
+
+	co_eventloop(co_get_epoll_ct(), NULL, NULL);
 //	return 0;
-//}
+}
+
+TEST_FUNC_ENTRY(co_cond);

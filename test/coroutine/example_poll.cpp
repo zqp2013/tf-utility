@@ -33,6 +33,7 @@
 #include <vector>
 #include <set>
 #include <unistd.h>
+#include "utility/TestCommand.h"
 
 #ifdef __FreeBSD__
 #include <cstring>
@@ -177,8 +178,10 @@ static void *poll_routine( void *arg )
 			co_self(),v.size(),setRaiseFds.size() );
 	return 0;
 }
-int main(int argc,char *argv[])
+//int main(int argc,char *argv[])
+void test_co_pool()
 {
+int argc = 0; char* argv[0];
 	vector<task_t> v;
 	for(int i=1;i<argc;i+=2)
 	{
@@ -205,7 +208,8 @@ int main(int argc,char *argv[])
 
 	co_eventloop( co_get_epoll_ct(),0,0 );
 
-	return 0;
+//	return 0;
 }
 //./example_poll 127.0.0.1 12365 127.0.0.1 12222 192.168.1.1 1000 192.168.1.2 1111
 
+TEST_FUNC_ENTRY(co_pool)

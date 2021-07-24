@@ -40,6 +40,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #endif
+#include "utility/TestCommand.h"
 
 using namespace std;
 struct task_t

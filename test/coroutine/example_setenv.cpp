@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <queue>
 #include "co_routine.h"
+#include "utility/TestCommand.h"
 
 const char* CGI_ENV_HOOK_LIST [] = 
 {
@@ -73,17 +74,19 @@ void* RoutineFunc(void* args)
 }
 
 //int main(int argc, char* argv[])
-//{
-//	co_set_env_list(CGI_ENV_HOOK_LIST, sizeof(CGI_ENV_HOOK_LIST) / sizeof(char*));
-//	stRoutineArgs_t  args[3];
-//	for (int i = 0; i < 3; i++)
-//	{
-//		stCoRoutine_t* co = NULL;
-//		args[i].iRoutineID = i;
-//		co_create(&co, NULL, RoutineFunc, &args[i]);
-//		co_resume(co);
-//	}
-//	co_eventloop(co_get_epoll_ct(), NULL, NULL);
+void test_co_env()
+{
+	co_set_env_list(CGI_ENV_HOOK_LIST, sizeof(CGI_ENV_HOOK_LIST) / sizeof(char*));
+	stRoutineArgs_t  args[3];
+	for (int i = 0; i < 3; i++)
+	{
+		stCoRoutine_t* co = NULL;
+		args[i].iRoutineID = i;
+		co_create(&co, NULL, RoutineFunc, &args[i]);
+		co_resume(co);
+	}
+	co_eventloop(co_get_epoll_ct(), NULL, NULL);
 //	return 0;
-//}
+}
 
+TEST_FUNC_ENTRY(co_env)

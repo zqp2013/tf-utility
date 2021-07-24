@@ -26,6 +26,7 @@
 #include <stdint.h>
 #include <pthread.h>
 #include <unistd.h>
+#include "utility/TestCommand.h"
 
 int loop(void *)
 {
@@ -38,19 +39,21 @@ static void *routine_func( void * )
 	return 0;
 }
 //int main(int argc,char *argv[])
-//{
-//	int cnt = atoi( argv[1] );
-//
-//	pthread_t tid[ cnt ];
-//	for(int i=0;i<cnt;i++)
-//	{
-//		pthread_create( tid + i,NULL,routine_func,0);
-//	}
-//	for(;;)
-//	{
-//		sleep(1);
-//	}
-//
-//	return 0;
-//}
+void test_co_thread()
+{
+	int cnt = 0;//atoi( argv[1] );
 
+	pthread_t tid[ cnt ];
+	for(int i=0;i<cnt;i++)
+	{
+		pthread_create( tid + i,NULL,routine_func,0);
+	}
+	for(;;)
+	{
+		sleep(1);
+	}
+
+//	return 0;
+}
+
+TEST_FUNC_ENTRY(co_thread)
