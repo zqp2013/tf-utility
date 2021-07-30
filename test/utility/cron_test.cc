@@ -7,9 +7,24 @@
 
 #include "utility/TestCommand.h"
 #include "utility/cron.h"
+#include "utility/singleton.h"
 using namespace tf;
 
+class DefaultSingle : public TC_Singleton<DefaultSingle> {
+public:
+	void Test() { cout << "DefaultSingle" << endl; }
+};
+
+class StaticSingle : public TC_Singleton<StaticSingle, CreateStatic, DefaultLifetime> {
+public:
+	void Test() { cout << "StaticSingle" << endl; }
+};
+
 void test_cron() {
+	// Singleton test
+	DefaultSingle::getInstance()->Test();
+	StaticSingle::getInstance()->Test();
+
 	//bitset test
 	cout << "__CHAR_BIT__:" << __CHAR_BIT__ <<
 			" __SIZEOF_LONG__:" << __SIZEOF_LONG__ <<
