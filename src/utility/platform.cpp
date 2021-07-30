@@ -1,11 +1,12 @@
-﻿/*
- * os.cpp
+/*
+ * platform.cpp
  *
- *  Created on: 2019年11月29日
+ *  Created on: Jul 30, 2021
  *      Author: qpzhou
  */
 
-#include "platform/os.h"
+#include "utility/platform.h"
+
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -38,4 +39,3 @@ void OS::SetCurrentThreadName(const std::string& name) {
 	 }
 #endif
 }
-
